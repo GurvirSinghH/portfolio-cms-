@@ -60,22 +60,24 @@
              <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-8 text-center">Selected Work</h1>
             <div class="space-y-12">
                 <!-- Project 1 -->
+                <div class="space-y-12">
+                 <!-- Project Snippix -->
                 <article class="project-card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Face Recognition Attendance System</h3>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Snippix</h3>
                     <p class="text-slate-600 mb-4">
-                        A Python-based application that uses facial recognition to mark attendance, built with OpenCV and Tkinter.
+                        A full-stack MERN application for creating, storing, and sharing code snippets with a supportive community.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
-                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">OpenCV</span>
-                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Tkinter</span>
-                        <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Machine Learning</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">HTML</span>
+                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full">CSS</span>
+                        <span class="bg-sky-100 text-sky-800 text-xs font-medium px-2.5 py-0.5 rounded-full">JS</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Node.js</span>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <a href="#" class="text-blue-600 hover:underline font-medium flex items-center">
+                        <a href="https://gurvirsinghh.github.io/Snippix/" class="text-blue-600 hover:underline font-medium flex items-center">
                             Live Demo <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
                         </a>
-                        <a href="https://github.com/GurvirSinghH/Face-Recognition-Attendance-System" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 font-medium flex items-center">
+                        <a href="https://github.com/GurvirSinghH/Snippix" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 font-medium flex items-center">
                             GitHub <i data-lucide="github" class="w-4 h-4 ml-1"></i>
                         </a>
                     </div>
