@@ -9,87 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa; /* Fallback background */
-        }
-        h1, h2, .nav-logo {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .animated-gradient {
-            background: linear-gradient(125deg, #f0f4f8, #e6e9f0, #f0f4f8);
-            background-size: 400% 400%;
-            animation: gradient-flow 15s ease infinite;
-        }
-        @keyframes gradient-flow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .content-fade-in {
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.5s forwards;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-        .project-card {
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-4px);
-            background-color: rgba(255, 255, 255, 0.5);
-            border-color: #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body class="animated-gradient text-slate-800 antialiased">
 
     <!-- Header & Navigation -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-900/10 transition-shadow duration-300">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center h-20">
-                <!-- Left: Logo -->
-                <div class="flex-shrink-0">
-                    <a href="#home" class="nav-logo text-2xl font-bold text-slate-900 tracking-tighter">GS.</a>
-                </div>
-
-                <!-- Center: Desktop Nav Links -->
-                <nav class="hidden md:flex justify-center flex-grow">
-                    <div class="flex items-center space-x-10">
-                        <a href="#projects" class="text-slate-600 hover:text-slate-900 transition-colors">Work</a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 transition-colors">About</a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 transition-colors">Blog</a>
-                    </div>
-                </nav>
-
-                <!-- Right: Contact & Mobile Menu Button -->
-                <div class="flex items-center space-x-6">
-                     <a href="mailto:contact@gurvirsingh.com" class="hidden md:block text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
-                    <button id="mobile-menu-button" class="md:hidden text-slate-700">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/80 backdrop-blur-md">
-             <div class="px-6 py-4 space-y-4 border-t border-slate-900/10">
-                <a href="#projects" class="block text-slate-600 hover:text-slate-900 transition-colors">Work</a>
-                <a href="#" class="block text-slate-600 hover:text-slate-900 transition-colors">About</a>
-                <a href="#" class="block text-slate-600 hover:text-slate-900 transition-colors">Blog</a>
-                <a href="mailto:contact@gurvirsingh.com" class="block text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
-             </div>
-        </div>
-    </header>
+    <?php include_once('../includes/header.php'); ?>
 
     <main class="max-w-3xl mx-auto px-6 pt-32 md:pt-40 content-fade-in">
-        
+
         <!-- Hero/Intro Section -->
         <section id="home" class="mb-16 md:mb-24 text-center">
             <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-4">Gurvir Singh</h1>
@@ -112,7 +40,7 @@
         <!-- Projects Section -->
         <section id="projects">
             <h2 class="text-2xl font-bold text-slate-800 mb-8">Selected Work</h2>
-            
+
             <div class="space-y-12">
                 <!-- Project 1 -->
                 <article class="project-card p-6 rounded-lg">
@@ -185,17 +113,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="max-w-3xl mx-auto px-6 py-12 text-center text-slate-500">
-        <div class="mb-6">
-            <h3 class="text-2xl font-bold text-slate-800 mb-2">Get In Touch</h3>
-            <p class="mb-4">I'm currently open to new opportunities. Feel free to send me an email.</p>
-            <a href="mailto:contact@gurvirsingh.com" class="inline-block bg-blue-600 text-white font-medium px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors transform hover:scale-105">
-                Say Hello
-            </a>
-        </div>
-        <p class="text-sm">&copy; 2025 Gurvir Singh. All rights reserved.</p>
-    </footer>
-
+    <?php include_once('../includes/footer.php'); ?>
     <script>
       // Using an IIFE (Immediately Invoked Function Expression) to avoid polluting the global scope
       // and to ensure all DOM elements are loaded before the script runs.
@@ -212,7 +130,6 @@
                 header.classList.remove('shadow-sm');
             }
         });
-        
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
