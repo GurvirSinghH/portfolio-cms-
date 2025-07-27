@@ -3,7 +3,8 @@
 $projects = [
     [
         'title' => 'Snippix',
-        'description' => 'A full-stack MERN application for creating, storing, and sharing code snippets with a supportive community.',
+        'description' => 'Snippix is a sleek, developer-friendly code snippet manager designed for quick saving, organizing, and sharing code across languages.
+It features a clean interface, dark mode, and seamless browsing for efficient snippet access.',
         'tags' => ['HTML', 'CSS', 'JS', 'Node.js'],
         'live_demo' => 'https://gurvirsinghh.github.io/Snippix/',
         'github_link' => 'https://github.com/GurvirSinghH/Snippix'

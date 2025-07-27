@@ -49,13 +49,15 @@
             <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-8 text-center">About Me</h1>
             <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 text-left bg-white/50 p-8 rounded-lg shadow-sm">
                 <div class="md:w-1/3 flex-shrink-0">
-                     <img src="assets/images/gurvir.jpg"
+                     <img src="assets/images/WhatsApp Image 2025-07-27 at 21.57.46_e0a46bcd.jpg"
                          onerror="this.onerror=null;this.src='https://placehold.co/400x400/E2E8F0/4A5568?text=Image+Not+Found';"
                          alt="Gurvir Singh" class="rounded-full shadow-lg mx-auto w-48 h-48 md:w-56 md:h-56 object-cover">
                 </div>
                 <div class="md:w-2/3">
                     <p class="text-slate-600 mb-6 leading-relaxed">
-                        I am a passionate software developer with a strong foundation in computer science and a keen interest in machine learning and full-stack web development. I enjoy solving complex problems and building applications that are both functional and user-friendly. My goal is to leverage my skills to create innovative solutions and contribute to impactful projects.
+                       Hi, I’m Gurvir Singh, a computer science student passionate about AI, cybersecurity, and building tech that feels human.
+I enjoy creating voice-based assistants, reactive interfaces, and projects that explore how we interact with machines.
+Beyond code, I’m curious about the mind, emotions, and the little things that connect us. This site is a glimpse of what I’m learning and building; feel free to reach out!
                     </p>
                     <h3 class="text-lg font-bold text-slate-800 mb-4">Core Skills</h3>
                     <div class="flex flex-wrap gap-2">
