@@ -19,7 +19,7 @@
                     <div class="flex items-center space-x-10">
                         <a href="../public/projects.php" class="text-slate-600 hover:text-slate-900 transition-colors">Work</a>
                         <a href='../public/about.php' class="text-slate-600 hover:text-slate-900 transition-colors">About</a>
-                        <a href="#" class="text-slate-600 hover:text-slate-900 transition-colors">Blog</a>
+                        <a href="../public/blog/blog.php" class="text-slate-600 hover:text-slate-900 transition-colors">Blog</a>
                     </div>
                 </nav>
 

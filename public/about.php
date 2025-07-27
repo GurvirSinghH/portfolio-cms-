@@ -49,7 +49,7 @@
             <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-8 text-center">About Me</h1>
             <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 text-left bg-white/50 p-8 rounded-lg shadow-sm">
                 <div class="md:w-1/3 flex-shrink-0">
-                     <img src="https://placehold.co/400x400/E2E8F0/4A5568?text=GS" 
+                     <img src="assets/images/gurvir.jpg"
                          onerror="this.onerror=null;this.src='https://placehold.co/400x400/E2E8F0/4A5568?text=Image+Not+Found';"
                          alt="Gurvir Singh" class="rounded-full shadow-lg mx-auto w-48 h-48 md:w-56 md:h-56 object-cover">
                 </div>

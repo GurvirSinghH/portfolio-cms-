@@ -1,3 +1,57 @@
+<?php
+// Array of project data
+$projects = [
+    [
+        'title' => 'Snippix',
+        'description' => 'A full-stack MERN application for creating, storing, and sharing code snippets with a supportive community.',
+        'tags' => ['HTML', 'CSS', 'JS', 'Node.js'],
+        'live_demo' => 'https://gurvirsinghh.github.io/Snippix/',
+        'github_link' => 'https://github.com/GurvirSinghH/Snippix'
+    ],
+    [
+        'title' => 'AI Virtual Mouse',
+        'description' => 'Control your computer\'s mouse using hand gestures, powered by OpenCV and MediaPipe for real-time tracking.',
+        'tags' => ['Python', 'OpenCV', 'MediaPipe', 'Computer Vision'],
+        'live_demo' => '#',
+        'github_link' => 'https://github.com/GurvirSinghH/AI-Virtual-Mouse'
+    ],
+    [
+        'title' => 'E-commerce Website',
+        'description' => 'A responsive e-commerce website template designed with a focus on user experience, built with HTML, CSS, and JavaScript.',
+        'tags' => ['HTML', 'CSS', 'JavaScript', 'Frontend'],
+        'live_demo' => '#',
+        'github_link' => 'https://github.com/GurvirSinghH/E-commerce-Website'
+    ]
+];
+
+// Helper function to assign a color class based on the tag name
+function getTagClass($tag) {
+    $tag_lower = strtolower($tag);
+    switch ($tag_lower) {
+        case 'html':
+            return 'bg-orange-100 text-orange-800';
+        case 'css':
+            return 'bg-sky-100 text-sky-800';
+        case 'js':
+        case 'javascript':
+            return 'bg-yellow-100 text-yellow-800';
+        case 'node.js':
+            return 'bg-green-100 text-green-800';
+        case 'python':
+            return 'bg-blue-100 text-blue-800';
+        case 'opencv':
+            return 'bg-green-100 text-green-800';
+        case 'mediapipe':
+            return 'bg-yellow-100 text-yellow-800';
+        case 'computer vision':
+            return 'bg-indigo-100 text-indigo-800';
+        case 'frontend':
+            return 'bg-gray-100 text-gray-800';
+        default:
+            return 'bg-gray-100 text-gray-800';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -59,73 +113,30 @@
         <section id="projects" class="mb-16 md:mb-24">
              <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-8 text-center">Selected Work</h1>
             <div class="space-y-12">
-                <!-- Project 1 -->
-                <div class="space-y-12">
-                 <!-- Project Snippix -->
+                <?php foreach ($projects as $project): ?>
                 <article class="project-card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Snippix</h3>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2"><?php echo htmlspecialchars($project['title']); ?></h3>
                     <p class="text-slate-600 mb-4">
-                        A full-stack MERN application for creating, storing, and sharing code snippets with a supportive community.
+                        <?php echo htmlspecialchars($project['description']); ?>
                     </p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">HTML</span>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full">CSS</span>
-                        <span class="bg-sky-100 text-sky-800 text-xs font-medium px-2.5 py-0.5 rounded-full">JS</span>
-                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Node.js</span>
+                        <?php foreach ($project['tags'] as $tag): ?>
+                            <span class="<?php echo getTagClass($tag); ?> text-xs font-medium px-2.5 py-0.5 rounded-full">
+                                <?php echo htmlspecialchars($tag); ?>
+                            </span>
+                        <?php endforeach; ?>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <a href="https://gurvirsinghh.github.io/Snippix/" class="text-blue-600 hover:underline font-medium flex items-center">
+                        <a href="<?php echo htmlspecialchars($project['live_demo']); ?>" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-medium flex items-center">
                             Live Demo <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
                         </a>
-                        <a href="https://github.com/GurvirSinghH/Snippix" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 font-medium flex items-center">
+                        <a href="<?php echo htmlspecialchars($project['github_link']); ?>" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 font-medium flex items-center">
                             GitHub <i data-lucide="github" class="w-4 h-4 ml-1"></i>
                         </a>
                     </div>
                 </article>
+                <?php endforeach; ?>
 
-                <!-- Project 2 -->
-                <article class="project-card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">AI Virtual Mouse</h3>
-                    <p class="text-slate-600 mb-4">
-                        Control your computer's mouse using hand gestures, powered by OpenCV and MediaPipe for real-time tracking.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
-                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">OpenCV</span>
-                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">MediaPipe</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Computer Vision</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="#" class="text-blue-600 hover:underline font-medium flex items-center">
-                            Live Demo <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                        <a href="https://github.com/GurvirSinghH/AI-Virtual-Mouse" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 font-medium flex items-center">
-                            GitHub <i data-lucide="github" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="project-card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">E-commerce Website</h3>
-                    <p class="text-slate-600 mb-4">
-                        A responsive e-commerce website template designed with a focus on user experience, built with HTML, CSS, and JavaScript.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">HTML</span>
-                        <span class="bg-sky-100 text-sky-800 text-xs font-medium px-2.5 py-0.5 rounded-full">CSS</span>
-                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">JavaScript</span>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Frontend</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="#" class="text-blue-600 hover:underline font-medium flex items-center">
-                            Live Demo <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                        <a href="https://github.com/GurvirSinghH/E-commerce-Website" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 font-medium flex items-center">
-                            GitHub <i data-lucide="github" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                </article>
             </div>
         </section>
 
