@@ -1,3 +1,44 @@
+<?php
+// Initialize a status message variable
+$statusMsg = '';
+
+// Check if the form has been submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the form fields and remove whitespace
+    $name = trim($_POST["name"]);
+    $email = trim($_POST["email"]);
+    $message = trim($_POST["message"]);
+
+    // Validate the form data
+    if (empty($name) || empty($email) || empty($message)) {
+        $statusMsg = "Please fill out all fields.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $statusMsg = "Invalid email format.";
+    } else {
+        // Set the recipient email address
+        $to = "g2207552@gmail.com"; // Your email address
+
+        // Set the email subject
+        $subject = "New Contact Form Submission from " . $name;
+
+        // Build the email content
+        $email_content = "Name: $name\n";
+        $email_content .= "Email: $email\n\n";
+        $email_content .= "Message:\n$message\n";
+
+        // Build the email headers
+        $headers = "From: " . $name . " <" . $email . ">\r\n";
+        $headers .= "Reply-To: " . $email . "\r\n";
+
+        // Send the email
+        if (mail($to, $subject, $email_content, $headers)) {
+            $statusMsg = "Thank you for your message. It has been sent.";
+        } else {
+            $statusMsg = "Message could not be sent. Please try again later.";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -36,15 +77,27 @@
                 opacity: 1;
             }
         }
+        .status-msg {
+            margin-top: 1rem;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        .status-msg.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-msg.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
     </style>
 </head>
 <body class="animated-gradient text-slate-800 antialiased">
 
-    <!-- Header & Navigation -->
     <?php include_once('../includes/header.php'); ?>
 
     <main class="max-w-3xl mx-auto px-6 pt-32 md:pt-40 content-fade-in">
-        <!-- Contact Section -->
         <section id="contact" class="mb-16 md:mb-24">
             <div class="text-center">
                 <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Get In Touch</h1>
@@ -52,23 +105,28 @@
             </div>
 
             <div class="mt-12 max-w-xl mx-auto bg-white/50 p-8 rounded-lg shadow-sm">
-                <form action="#" method="POST" class="space-y-6">
+                <?php if (!empty($statusMsg)): ?>
+                    <div class="status-msg <?php echo (strpos($statusMsg, 'Thank you') !== false) ? 'success' : 'error'; ?>">
+                        <?php echo $statusMsg; ?>
+                    </div>
+                <?php endif; ?>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium text-slate-700">Full Name</label>
                         <div class="mt-1">
-                            <input type="text" name="name" id="name" autocomplete="name" class="w-full px-4 py-3 rounded-lg bg-slate-50 border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            <input type="text" name="name" id="name" autocomplete="name" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
                         </div>
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium text-slate-700">Email Address</label>
                         <div class="mt-1">
-                            <input type="email" name="email" id="email" autocomplete="email" class="w-full px-4 py-3 rounded-lg bg-slate-50 border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            <input type="email" name="email" id="email" autocomplete="email" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
                         </div>
                     </div>
                     <div>
                         <label for="message" class="block text-sm font-medium text-slate-700">Message</label>
                         <div class="mt-1">
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-slate-50 border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg bg-slate-50 border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
                         </div>
                     </div>
                     <div class="text-right">
@@ -97,7 +155,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="max-w-3xl mx-auto px-6 py-12 text-center text-slate-500">
         <p class="text-sm">&copy; 2025 Gurvir Singh. All rights reserved.</p>
     </footer>
