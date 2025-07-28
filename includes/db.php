@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db = 'portfolio';
 $user = 'root';
-$pass = ''; // (leave empty if you haven't set a password)
+$pass = 'Ganesar27@#'; // (leave empty if you haven't set a password)
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
