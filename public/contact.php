@@ -1,4 +1,6 @@
 <?php
+require_once '../includes/db.php'; // Adjust path based on your file structure
+
 // Initialize a status message variable
 $statusMsg = '';
 
@@ -36,6 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $statusMsg = "Message could not be sent. Please try again later.";
         }
+
+        // Save to database
+        try {
+            $stmt = $pdo->prepare("INSERT INTO contact_messages (name, email, message) VALUES (?, ?, ?)");
+            $stmt->execute([$name, $email, $message]);
+        } catch (PDOException $e) {
+                error_log("DB Insert Error: " . $e->getMessage());
+        }
+
     }
 }
 ?>
